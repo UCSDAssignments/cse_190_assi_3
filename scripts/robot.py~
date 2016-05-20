@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from astar import AStar
-from std_msgs.msg import Bool
+
 import rospy
 
 class RobotLocalizer():

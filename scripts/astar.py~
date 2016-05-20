@@ -40,11 +40,17 @@ class AStar():
 			curr_fx, curr_state, curr_path = curr_pos_tup[2]
 			
 			if self.isGoal(curr_state):
-				for path in curr_path:
-					aStartList = AStarPath()
-					aStartList.data = path
-					rospy.sleep(0.5)
-					self.pathlist_pub.publish(aStartList)
+				msg = AStarPath()
+				#msg.data = curr_path.reshape(len(curr_path)*2)
+				msg.data = [1,2]
+				rospy.sleep(0.5)
+				self.pathlist_pub.publish(msg)
+				msg.data = [3,4]
+				rospy.sleep(0.5)
+				self.pathlist_pub.publish(msg)
+				rospy.sleep(0.5)
+				#for path in curr_path:
+					#self.pathlist_pub.publish(path)
 				break
 			
 			for child in self.getChildren(curr_state):
